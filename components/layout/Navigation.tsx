@@ -1,11 +1,16 @@
+import { navigation } from "@/lib/navigation";
 import NavItem from "./NavItem";
+
 export default function Navigation() {
   return (
     <nav>
-        <NavItem label="Command Center" />
-        <NavItem label="Conversations" />
-        <NavItem label="Alerts" />
-        <NavItem label="Reports" />
+      {navigation.map((item) => (
+        <NavItem
+  key={item.href}
+  label={item.label}
+  href={item.href}
+  icon={item.icon}
+/>      ))}
     </nav>
   );
 }

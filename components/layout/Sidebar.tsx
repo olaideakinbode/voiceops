@@ -1,21 +1,28 @@
+import FooterNavigation from "./FooterNavigation";
 import Brand from "./Brand";
 import Navigation from "./Navigation";
 import UserProfile from "./UserProfile";
 
 export default function Sidebar() {
   return (
-    <aside className="flex h-full w-[264px] flex-col border-r bg-slate-900 text-white">
+    <aside className="w-56 bg-slate-950 text-white flex flex-col border-r border-slate-800">
 
-      <Brand />
+      <div className="px-6 pt-8">
+        <Brand />
+      </div>
 
-      {/* Navigation */}
-      <Navigation />
+      <div className="flex-1 px-3 mt-8">
+        <Navigation />
+      </div>
 
-      {/* Push footer to the bottom */}
-      <div className="flex-1" />
+      <div className="px-3 py-4 border-t border-slate-800">
+        <FooterNavigation />
+      </div>
 
-      {/* User Profile */}
-      <UserProfile />
+      <div className="border-t border-slate-800 p-4">
+        <UserProfile />
+      </div>
+
     </aside>
   );
 }
