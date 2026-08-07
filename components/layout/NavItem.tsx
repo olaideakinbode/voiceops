@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { LucideIcon } from "lucide-react";
 
@@ -13,11 +16,17 @@ export default function NavItem({
   icon,
 }: NavItemProps) {
   const Icon = icon;
+  const pathname = usePathname();
+  const isActive = pathname === href;
 
   return (
   <Link
   href={href}
-  className="flex items-center gap-3 rounded-lg px-4 py-3 text-slate-200 hover:bg-slate-800 transition-colors"
+  className={`flex items-center gap-3 rounded-lg px-4 py-3 transition-colors ${
+    isActive
+      ? "bg-violet-600 text-white"
+      : "text-slate-300 hover:bg-slate-800 hover:text-white"
+  }`}
 >
   <Icon size={18} />
   <span className="text-sm font-medium">{label}</span>
